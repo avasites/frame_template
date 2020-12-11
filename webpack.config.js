@@ -1,13 +1,15 @@
-const path = require('path');
 const fs = require("fs");
+const path = require('path');
 const webpack = require('webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 
 function generateHtmlPlugins(templateDir) {
+
     let result = [];
   
     helper(templateDir);
@@ -56,6 +58,30 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: './css/main.css',
         }),
+        new webpack.optimize.LimitChunkCountPlugin({
+          maxChunks: 1
+        }),
+        new ImageMinimizerPlugin({
+          minimizerOptions: {
+            // Lossless optimization with custom option
+            // Feel free to experiment with options for better result for you
+            plugins: [
+              ['gifsicle', { interlaced: true }],
+              ['jpegtran', { progressive: true }],
+              ['optipng', { optimizationLevel: 5 }],
+              [
+                'svgo',
+                {
+                  plugins: [
+                    {
+                      removeViewBox: false,
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        }),
     ].concat(htmlPlugins),
     module: {
         rules: [
@@ -63,7 +89,11 @@ module.exports = {
             test: /\.(jpe?g|png|gif|svg)$/i,
                 use: [
                     {
-                    loader: 'file-loader', // Or `url-loader` or your other loader
+                      loader: 'file-loader',
+                      options: {
+                        name: '[path][name].[ext]',
+                        publicPath: '/'
+                      }, // Or `url-loader` or your other loader
                     },
                 ],
             },
@@ -80,7 +110,22 @@ module.exports = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     {loader: 'css-loader', options: {sourceMap: true, importLoaders: 1}},
-                    {loader: 'postcss-loader', options: {sourceMap: true}},
+                    {
+                      loader: 'postcss-loader', 
+                      options: {
+                        sourceMap: true,
+                        postcssOptions: {
+                          plugins: [
+                            [
+                              "autoprefixer",
+                              {
+                                // Options
+                              },
+                            ],
+                          ],
+                        },
+                      }
+                    },
                     {loader: 'sass-loader', options: {sourceMap: true}},
                 ],
             },
@@ -90,5 +135,9 @@ module.exports = {
               use: ["raw-loader"]
             }      
         ]
-    }
+    },
+    optimization: {
+      minimize: true,
+      minimizer: [new CssMinimizerPlugin(), "..."],
+    },
   };
