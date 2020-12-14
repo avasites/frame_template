@@ -38,7 +38,13 @@ function generateHtmlPlugins(templateDir) {
 const htmlPlugins = generateHtmlPlugins("./src/html/views");
 
 module.exports = {
-    entry: './src/index.js',
+  //...
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000
+  },
+  entry: './src/index.js',
     devtool: "source-map",
     cache: false,
     output: {
@@ -48,14 +54,6 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        // new CopyWebpackPlugin({
-        //     patterns: [
-        //       {
-        //         from: './src/img',
-        //         to: './img',
-        //       }
-        //     ],
-        // }),
         new MiniCssExtractPlugin({
             filename: './css/main.css',
         }),
@@ -119,7 +117,7 @@ module.exports = {
             {
             test: /\.(scss|css)$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    'style-loader',
                     {loader: 'css-loader', options: {sourceMap: true, importLoaders: 1}},
                     {
                       loader: 'postcss-loader', 
@@ -151,4 +149,4 @@ module.exports = {
       minimize: true,
       minimizer: [new CssMinimizerPlugin(), "..."],
     },
-  };
+};
