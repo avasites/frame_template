@@ -95,11 +95,7 @@ module.exports = {
                         name: '[name].[ext]',
                         context: '/img',
                         publicPath: (url, resourcePath, context) => {
-                          if (/decoration/.test(resourcePath)) {
-                            return `/${context}/decoration/${url}`;
-                          }
-        
-                          return `${context}/${url}`;
+                          return `..${context}/${url}`;
                         },
                         outputPath: (url, resourcePath, context) => {        
                           return `../${context}/${url}`;

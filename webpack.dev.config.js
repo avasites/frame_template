@@ -55,7 +55,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: './css/main.css',
+            filename: path.resolve(__dirname, 'dist')+'/css/main.css',
         }),
         new webpack.optimize.LimitChunkCountPlugin({
           maxChunks: 1
@@ -91,17 +91,14 @@ module.exports = {
                       loader: 'file-loader',
                       options: {
                         name: '[name].[ext]',
-                        context: '/img',
+                        context: 'img',
                         publicPath: (url, resourcePath, context) => {
-                          if (/decoration/.test(resourcePath)) {
-                            return `/${context}/decoration/${url}`;
-                          }
-        
                           return `${context}/${url}`;
                         },
                         outputPath: (url, resourcePath, context) => {        
-                          return `../${context}/${url}`;
+                          return `${context}/${url}`;
                         },
+                       
                       },
                     },
                 ],
