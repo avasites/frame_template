@@ -1,0 +1,25 @@
+.content-video-section {
+    position: relative;
+    width: 1640px;
+    &-poster {
+   
+    }
+    &-text {
+        font-size: 40px;
+        font-family: 'Roboto', sans-serif;
+        position: absolute;
+        right: 280px;
+        top: 281px;
+        width: 497px;
+        line-height: 52,88px;
+        color: #fff;
+    }
+    &-play {
+        width: 65px;
+        height: 79px;
+        background: url('../../../../img/s_play.png') center center;
+        position: absolute;
+        margin: auto;
+        top: 0; left: 0; bottom: 0; right: 0;
+    }
+}

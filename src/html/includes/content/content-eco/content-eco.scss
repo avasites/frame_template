@@ -1,0 +1,67 @@
+.content-eco {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 140px;
+    font-family: Montserrat;
+    font-weight: 400;
+    &-col {
+        text-align: center;
+    }
+    &-promo {
+        font-size: 28px;
+        line-height: 160%;
+    }
+    &-link {
+        font-size: 16px;
+        line-height: 160%;
+        letter-spacing: 0.01em;
+        margin-top: 24px;
+        a {
+            color: #000;
+        }
+    }
+    &-save {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 140%;
+    }
+    &-description {
+        max-width: 327px;
+        font-size: 16px;
+        line-height: 160%;
+        margin-top: 24px;
+        opacity: 0.8;
+    }
+    &-history {
+        margin-top: 16px;
+        a {
+            color: #000;
+            letter-spacing: 0.01em;
+        }
+    }
+    &-socials {
+        margin-top: 32px;
+        p {
+            opacity: 0.4;
+            font-size: 12px;
+            line-height: 160%;
+        }
+    }
+    &-icons {
+        margin-top: 16px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        margin-right: 16px;
+        background: #EAEAEA;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

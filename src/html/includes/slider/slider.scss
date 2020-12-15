@@ -1,0 +1,19 @@
+.swiper-container {
+    width: 1200px;
+    height: 500px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    background: #C4C4C4 !important;
+    border-radius: 50% !important;
+    width: 39px !important;
+    height: 39px !important;
+    color: #fff !important;
+    &:after {
+        font-size: 18px !important;
+    }
+}
+
+
+

@@ -1,0 +1,177 @@
+.content-review {
+    padding-left: 47px;
+    font-family: Montserrat;
+    display: flex;
+    flex-direction: row;
+    &-info {
+        &-quantity {
+            font-size: 20px;
+            line-height: 160%;
+            letter-spacing: 0.12em;
+            font-weight: 400;
+            margin-top: 84px;
+        }
+        &-title {
+            font-weight: 500;
+            font-size: 40px;
+            line-height: 49px;
+            margin-top: 16px;
+        }
+        &-description {
+            font-size: 16px;
+            line-height: 160%;
+            opacity: 0.8;
+            max-width: 356px;
+        }
+        a {
+            background: #878594;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            text-align: center;
+            padding: 16px 53px;
+            display:inline-block;
+            line-height: 24px;
+        }
+    }
+    &-comments {
+        display: flex;
+        flex-direction: row;
+        margin-left: 136px;
+    }
+    &-item {
+        background: #F5F5F5;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 444px;
+        height: 272px;
+        margin-right: 8px;
+        padding-left: 40px;
+        padding-right: 48px;
+        &-quantity {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 28px;
+            line-height: 34px;
+            background: #FFFFFF;
+            border-radius: 100px;
+            padding: 8px 53px 12px 53px;
+        }
+        &-promo {
+            max-width: 249px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 25.6px;
+            opacity: 0.8;
+            margin-top: 24px;
+        }
+        &-user {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+            &-name {
+                font-family: Roboto;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 160%;
+                color: #000000;
+                opacity: 0.8;
+                text-align: left;
+                margin-left: 16px;
+            }
+            p {
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 160%;
+                color: #000000;
+                opacity: 0.5;
+            }
+        }
+        p {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            line-height: 23.8px;
+            font-weight: 400;
+        }
+        &-rating {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            &-item {
+                width: 16.72px;
+                height: 16px;
+                background: url('../../../../img/s_rate.png') center center no-repeat;
+                margin-right: 11.28px;
+                opacity: 0.4;
+            }
+        }
+        &-text {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 26px;
+            color: #000000;
+            opacity: 0.8;
+            margin-top: 25px;
+            text-align: left;
+        }
+        &-date {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            font-family: Roboto;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 160%;
+            color: #000000;
+            opacity: 0.8;
+            .content-review-item-full {
+                color: #000;
+                text-decoration: none;
+            }
+            div {
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 23px;
+                color: #8A8A8A;
+                opacity: 0.5;
+            }
+        }
+    }
+    .icons {
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+        .icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #fff;
+            margin-right: 16px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.content-review-item-user-block {
+    display: flex;
+    flex-direction: row;
+}
