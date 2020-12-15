@@ -24,7 +24,7 @@ function generateHtmlPlugins(templateDir) {
           result.push(new HtmlWebpackPlugin({
             filename: `${nameFolder}${name}.html`,
             template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
-            inject: false
+            alwaysWriteToDisk: true,
           }));
         } else {
           helper(`${templateDir}/${name}`, `${nameFolder}${name}/`);
@@ -48,14 +48,14 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        // new CopyWebpackPlugin({
-        //     patterns: [
-        //       {
-        //         from: './src/img',
-        //         to: './img',
-        //       }
-        //     ],
-        // }),
+        new CopyWebpackPlugin({
+            patterns: [
+              {
+                from: './src/img',
+                to: '../img',
+              }
+            ],
+        }),
         new MiniCssExtractPlugin({
             filename: './css/main.css',
         }),
